@@ -18,19 +18,9 @@
 
 
 
+	<meta name="keywords" content="Git," />
 
-    <meta name="keywords" content="Hexo,next" />
-
-
-
-
-
-    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.0" />
-
-
-
-
-  <title> 事业单位改革问题与职业道德 // My Notes </title>
+  <title> Github+hexo搭建静态博客 // My Notes </title>
 </head>
 
 <body>
@@ -111,7 +101,7 @@
           
           
             
-              事业单位改革问题与职业道德
+              Github+hexo搭建静态博客
             
           
         </h1>
@@ -129,7 +119,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/公共基础/">公共基础</a>
+                <a href="/categories/Web/">Web</a>
 
                 
                 
@@ -152,41 +142,79 @@
         
 
         
-          <h3 id="事业单位改革的指导思想：">事业单位改革的指导思想：</h3><ul>
-<li>高举中国特色社会主义伟大旗帜，以邓小平理论和“三个代表”重要思想为指导，深入贯彻落实科学发展观</li>
-<li>按照政企分开、事企分开和管办分离的要求</li>
-<li>以促进公益事业发展为目的</li>
-<li>以科学分类为基础</li>
-<li>以深化机制改革委核心</li>
-<li>总体设计、分<a id="more"></a>类指导、因地制宜、先行试点、稳步推进，进一步增强单位活力</li>
-<li>不断满足人民群众和经济社会发展对公益服务的需求。</li>
-</ul>
-<hr>
-<h3 id="事业单位改革的基本原则：">事业单位改革的基本原则：</h3><ul>
-<li>坚持以人为本、把提高公益服务水平、满足人民群众需求作为出发点和落脚点；</li>
-<li>坚持分类指导</li>
-<li>坚持着眼发展</li>
-<li>坚持统筹兼顾</li>
-</ul>
-<hr>
-<h3 id="总体思路：">总体思路：</h3><ul>
-<li>走“脱钩、放权、分类、搞活”的路子</li>
-<li>贯彻公开、平等、竞争、择优的原则。</li>
-</ul>
-<hr>
-<h3 id="社会主义职业道德的特点：">社会主义职业道德的特点：</h3><ul>
-<li>继承性和创造性相统一</li>
-<li>阶级性和人民性相统一：社会主义职业道德具有鲜明的阶级性，其根本目的和任务在于反映工人阶级和广大劳动人民的根本利益，维护工人阶级和广大劳动人民的政治统治地位。</li>
-<li>先进性和广泛性相统一</li>
-</ul>
-<hr>
-<h3 id="职业道德五项规范：">职业道德五项规范：</h3><ul>
-<li>爱岗敬业、诚实守信、办事公道、服务群众、奉献社会。</li>
-<li>爱岗敬业是最基本、最普遍的要求，是为人民服务和集体主义精神的具体体现，是职业道德基本规范的核心和基础。</li>
-<li>为人民服务是社会主义职业道德的核心典范，是贯穿于全社会共同职业规范中的基本精神，是社会主义职业道德规范体系的核心。</li>
-<li>集体主义是社会主义职业道德规范的基本原则。</li>
-</ul>
-<hr>
+          <p>昨天通宵看了各路大神的教程，总是出现各种莫名问题，糊里糊涂到最后也没弄好。睡一觉后，突然想明白，其实是有三个大步骤。</p>
+<p>第一步是用hexo在本地搭建博客，以能够打开本地网页为成功标志。第二步是建立本地与Github的<a id="more"></a>联系，以SSH的配置成功为成功标志。第三步是将本地博客上传到Github仓库，以打开网页博客为成功标志。</p>
+<p>之前在网上看教程，只是照搬步骤，却没弄懂各个步骤的本质，所以失败之后，排查问题犹如大海捞针。一旦想明白之后，各种不同的教程我也能有针对性的取其精要，并迅速找到问题，最后终于成功。</p>
+<p>这种撒花的心情吖：<a href="http://jiuye1.github.io/！趁此时便把步骤记录下来，难保时间长忘记了。">http://jiuye1.github.io/！趁此时便把步骤记录下来，难保时间长忘记了。</a></p>
+<h2 id="准备软件">准备软件</h2><p>依次安装：<br>    • 1、<a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a><br>    • 2、<a href="http://git-scm.com/" target="_blank" rel="external">Git</a></p>
+<p>  安装好之后，后面最常用的操作是：鼠标右键—打开<code>Git Bash</code>。</p>
+<h2 id="搭建Hexo本地博客">搭建Hexo本地博客</h2><h3 id="安装Hexo">安装Hexo</h3><p>打开git，输入：</p>
+<p><code>npm install hexo -g</code></p>
+<h3 id="部署Hexo">部署Hexo</h3><p>建立一个「Hexo」的文件夹，在此文件夹中右键打开<code>Git Bash</code>,然后安装几个必要的插件：<br>EJS</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-renderer-ejs <span class="comment">--save</span></span>
+</code></pre><p> Stylus</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-renderer-stylus <span class="comment">--save</span></span>
+</code></pre><p> Marked</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-renderer-marked <span class="comment">--save</span></span>
+</code></pre><p>接着建立博客：</p>
+<pre><code><span class="title">hexo</span> init
+</code></pre><p>发布：</p>
+<pre><code>hexo generate &amp;&amp; hexo <span class="keyword">server</span>
+</code></pre><p>如果成功了，在浏览器中输入<code>localhost:4000</code>便能看到博客，失败的话注意看提示，也能解决。</p>
+<h2 id="配置Git仓库">配置Git仓库</h2><h3 id="注册GitHub">注册GitHub</h3><p><a href="http://www.github.com/" target="_blank" rel="external">http://www.github.com/</a> </p>
+<p>记住username和邮箱，注册完之后要去邮箱激活。然后建个仓库，跟着页面走就是。仓库名称必须是<code>yourname.github.io</code>形式，记着勾选<code>Initialize this repository with a README</code> 选项。</p>
+<h3 id="配置SSH_keys">配置SSH keys</h3><ol>
+<li><p>检查电脑上的SSH sky:</p>
+<p><code>cd ~/.ssh</code></p>
+</li>
+<li><p>生成新的SSH sky:</p>
+<p><code>ssh-keygen -t rsa -C &quot;youremail@youremail.com&quot;</code></p>
+</li>
+</ol>
+<p>系统要求输入密码的时候直接输，不会有显示。</p>
+<p>显示出这个画面就说明好了：</p>
+<p><img src="http://7xiviu.com1.z0.glb.clouddn.com/11.png" alt="此处输入图片的描述"></p>
+<h3 id="添加SSH_Key到GitHub">添加SSH Key到GitHub</h3><ol>
+<li><p>在本地打开C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件，复制。</p>
+</li>
+<li><p>登陆github，Account Settings—-&gt;SSH Public keys —-&gt; add another public keys</p>
+</li>
+<li><p>add key，粘贴。</p>
+</li>
+</ol>
+<h3 id="测试">测试</h3><p>输入：</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>要选yes or no的时候就打yes，最后看到</p>
+<pre><code>Hi cnfeat! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span>
+provide shell access.
+</code></pre><p>OK了。</p>
+<h3 id="完善用户信息">完善用户信息</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &#34;cnfeat&#34;//&#29992;&#25143;&#21517; &#10;git config --globaluser.email  &#34;cnfeat@gmail.com&#34;//&#33258;&#24049;&#30340;&#37038;&#31665;</span><br></pre></td></tr></table></figure>
+<h2 id="将本地博客部署到Git">将本地博客部署到Git</h2><h3 id="配置_config-yml文件">配置_config.yml文件</h3><pre><code><span class="attribute">deploy</span>:
+<span class="attribute">type</span>: git
+<span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:youername/yourname.github.com.git
+<span class="attribute">branch</span>: master
+</code></pre><p>据说有的老版本type写github。</p>
+<h3 id="完成部署">完成部署</h3><pre><code><span class="title">hexo</span> clean
+hexo generate
+hexo deploy
+</code></pre><h3 id="本地查看调试">本地查看调试</h3><pre><code><span class="title">hexo</span> g <span class="comment">#生成</span>
+hexo s <span class="comment">#启动</span>
+</code></pre><p>每次有更改都要<code>hexo g</code> 一下，<code>hexo s</code>后可以在本地查看。同步到仓库是：</p>
+<pre><code><span class="title">hexo</span> d
+</code></pre><p>因为我不绑域名费的，所以就不操心DNS设置啦。</p>
+<h2 id="hexo常用操作">hexo常用操作</h2><h3 id="更换主题">更换主题</h3><p>网上有很多主题：直接 <code>git clone 地址</code>，类似下面这样：</p>
+<pre><code>git clone <span class="string">https:</span><span class="comment">//github.com/A-limon/pacman.git themes/pacman</span>
+</code></pre><p>安装成功后，在根目录文件夹下面的_config.yml，把里面的theme属性设置为pacman。然后进入<code>themes/pacman</code>，运行Git bash， 执行</p>
+<pre><code><span class="title">git</span> pull
+</code></pre><p>进入根目录，运行</p>
+<pre><code><span class="title">hexo</span> s
+</code></pre><p>然后在浏览器输入<code>localhost:4000</code>就能看到新主题了。</p>
+<h3 id="写新文章">写新文章</h3><p>输入：</p>
+<pre><code><span class="title">hexo</span> n “文章名”
+</code></pre><p>文章名字如果有空格一定要用引号。然后就会在\source_post下面发现一个文章名.md的markdown格式的文件。用markdown打开该文件，编辑保存。</p>
+<pre><code>hexo <span class="keyword">g</span> &amp;&amp; hexo <span class="literal">s</span>
+</code></pre><p>本地就可以看到了。</p>
+<p>或者直接用markdown编辑好文件，直接放进文件夹，然后执行同样的命令。注意格式。</p>
 
         
       </div>
@@ -195,16 +223,24 @@
     
       <div class="post-footer">
         
+          <div class="post-tags">
+            
+              <a href="/tags/Git/">
+                #Git
+              </a>
+            
+          </div>
+        
 
         
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/06/06/事业单位概况背诵题目/">事业单位概况</a>
-              
             </div>
 
             <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/06/06/hello-world/">Hello World</a>
               
             </div>
           </div>
@@ -290,7 +326,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事业单位改革的指导思想："><span class="nav-number">1.</span> <span class="nav-text">事业单位改革的指导思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事业单位改革的基本原则："><span class="nav-number">2.</span> <span class="nav-text">事业单位改革的基本原则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总体思路："><span class="nav-number">3.</span> <span class="nav-text">总体思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#社会主义职业道德的特点："><span class="nav-number">4.</span> <span class="nav-text">社会主义职业道德的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#职业道德五项规范："><span class="nav-number">5.</span> <span class="nav-text">职业道德五项规范：</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备软件"><span class="nav-number">1.</span> <span class="nav-text">准备软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Hexo本地博客"><span class="nav-number">2.</span> <span class="nav-text">搭建Hexo本地博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署Hexo"><span class="nav-number">2.2.</span> <span class="nav-text">部署Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Git仓库"><span class="nav-number">3.</span> <span class="nav-text">配置Git仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册GitHub"><span class="nav-number">3.1.</span> <span class="nav-text">注册GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH_keys"><span class="nav-number">3.2.</span> <span class="nav-text">配置SSH keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSH_Key到GitHub"><span class="nav-number">3.3.</span> <span class="nav-text">添加SSH Key到GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">3.4.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完善用户信息"><span class="nav-number">3.5.</span> <span class="nav-text">完善用户信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将本地博客部署到Git"><span class="nav-number">4.</span> <span class="nav-text">将本地博客部署到Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置_config-yml文件"><span class="nav-number">4.1.</span> <span class="nav-text">配置_config.yml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成部署"><span class="nav-number">4.2.</span> <span class="nav-text">完成部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地查看调试"><span class="nav-number">4.3.</span> <span class="nav-text">本地查看调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用操作"><span class="nav-number">5.</span> <span class="nav-text">hexo常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">5.1.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写新文章"><span class="nav-number">5.2.</span> <span class="nav-text">写新文章</span></a></li></ol></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
